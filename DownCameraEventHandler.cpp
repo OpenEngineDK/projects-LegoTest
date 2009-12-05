@@ -2,11 +2,10 @@
 #include <Logging/Logger.h>
 
 namespace OpenEngine {
-    namespace EventHandlers {
+namespace EventHandlers {
 
-
-DownCameraEventHandler::DownCameraEventHandler(Camera* camera,
-                                               IGameFactory* factory) 
+        
+DownCameraEventHandler::DownCameraEventHandler(Camera* camera)                                               
     : camera(camera),buttons(0) {
     direction = Vector<3,float>(1.0,0.0,0.0);
     up = Vector<3,float>(0.0,1.0,0.0);

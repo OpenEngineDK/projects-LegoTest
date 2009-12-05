@@ -11,10 +11,13 @@
 #include <Meta/Config.h>
 #include <Logging/Logger.h>
 #include <Logging/StreamLogger.h>
-#include <Core/GameEngine.h>
+#include <Core/Engine.h>
 
-// Game factory
-#include "GameFactory.h"
+
+// SimpleSetup
+#include <Utils/SimpleSetup.h>
+
+
 
 // name spaces that we will be using.
 // this combined with the above imports is almost the same as
@@ -29,15 +32,18 @@ using namespace OpenEngine::Core;
  * method in Java.
  */
 int main(int argc, char** argv) {
-    // Setup logging facilities.
-    Logger::AddLogger(new StreamLogger(&std::cout));
+    SimpleSetup* setup = new SimpleSetup("Example Project Title");
+    setup->AddDataDirectory("projects/city/data/");
+
 
     // Print usage info.
     logger.info << "========= Running OpenEngine Test Project =========" << logger.end;
 
-    // Start the engine.
-    IGameEngine& engine = GameEngine::Instance();
-    engine.Start(new GameFactory());
+
+
+
+    setup->GetEngine().Start();
+
 
     // Return when the engine stops.
     return EXIT_SUCCESS;

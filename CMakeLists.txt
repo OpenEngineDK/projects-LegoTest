@@ -8,7 +8,7 @@ SET( PROJECT_SOURCES
   main.cpp
   CustomLevel.cpp
   DownCameraEventHandler.cpp
-  GameFactory.cpp
+#  GameFactory.cpp
 )
 
 # Include needed to use SDL under Mac OS X

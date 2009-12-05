@@ -1,7 +1,7 @@
 #ifndef _DOWN_CAMERA_EVENT_HANDLER_H_
 #define _DOWN_CAMERA_EVENT_HANDLER_H_
 
-#include <Core/IGameFactory.h>
+#include <Core/IModule.h>
 #include <Display/Camera.h>
 #include <Devices/IMouse.h>
 
@@ -11,11 +11,11 @@ using namespace OpenEngine::Display;
 using namespace OpenEngine::Devices;
 
 namespace OpenEngine {
-    namespace EventHandlers {
+namespace EventHandlers {
 
-        class DownCameraEventHandler : public IModule, 
-                                       public IListener<MouseMovedEventArg>, 
-                                       public IListener<MouseButtonEventArg> {
+class DownCameraEventHandler : public IModule, 
+                               public IListener<MouseMovedEventArg>, 
+                               public IListener<MouseButtonEventArg> {
 
 private:
     Camera* camera;
@@ -24,8 +24,8 @@ private:
     IMouse* mouse;
     Vector<3,float> direction, up, position;
 public:
-    DownCameraEventHandler(Camera* camera,
-                           IGameFactory* factory);
+    DownCameraEventHandler(Camera* camera);
+
     ~DownCameraEventHandler();
 
     void Initialize();
